@@ -17,12 +17,12 @@
 
 
 
-  <meta name="description" content="win10一键获得管理员权限">
+  <meta name="description" content="VC++6.0软件安装使用（win10可用），送给需要学c语言的你">
 
 
 
 
-  <meta name="keywords" content="windows, 技巧, 混子的集合地">
+  <meta name="keywords" content="windows, 软件, 编程, 混子的集合地">
 
 
 
@@ -42,7 +42,7 @@
 
 
 
-<link rel="canonical" href="http://zxcwuzheng.github.io/2019/02/03/win10一键获得管理员权限/">
+<link rel="canonical" href="http://zxcwuzheng.github.io/2019/02/04/VC-6-0软件安装使用（win10可用），送给需要学c语言的你/">
 
 
 
@@ -90,7 +90,7 @@
   window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":true,"pjax":true};
 </script>
 
-    <title> win10一键获得管理员权限 - 混子的集合地 </title>
+    <title> VC++6.0软件安装使用（win10可用），送给需要学c语言的你 - 混子的集合地 </title>
   </head>
 
   <body><div id="mobile-navbar" class="mobile-navbar">
@@ -206,18 +206,18 @@
     <header class="post-header">
       <h1 class="post-title">
         
-          win10一键获得管理员权限
+          VC++6.0软件安装使用（win10可用），送给需要学c语言的你
         
       </h1>
 
       <div class="post-meta">
         <span class="post-time">
-          2019-02-03
+          2019-02-04
         </span>
         
           <span class="post-category">
             
-              <a href="/categories/windows/">windows</a>
+              <a href="/categories/软件安装/">软件安装</a>
             
           </span>
         
@@ -227,43 +227,29 @@
 
     
     
-  <div class="post-toc" id="post-toc">
-    <h2 class="post-toc-title">文章目录</h2>
-    <div class="post-toc-content">
-      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#很多时候因为各种权限问题而自闭，其实无需登陆管理员账户就可以一键获取管理员权限，如下图所示："><span class="toc-text">很多时候因为各种权限问题而自闭，其实无需登陆管理员账户就可以一键获取管理员权限，如下图所示：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#首先在桌面新建一个文本文件，然后复制粘贴以下神奇代码：首先在桌面新建一个文本文件，然后复制粘贴以下神奇代码："><span class="toc-text">首先在桌面新建一个文本文件，然后复制粘贴以下神奇代码：首先在桌面新建一个文本文件，然后复制粘贴以下神奇代码：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#然后保存，命名为“管理员所有权-reg-”，注意后缀，选择保存类型是是选择“所有文件”！，然后就有如图文件。"><span class="toc-text">然后保存，命名为“管理员所有权.reg ”，注意后缀，选择保存类型是是选择“所有文件”！，然后就有如图文件。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#双击运行，不管弹出什么都选择“是”或者“确定”，然后就OK了"><span class="toc-text">双击运行，不管弹出什么都选择“是”或者“确定”，然后就OK了</span></a></li></ol>
-    </div>
-  </div>
-
 
 
     <div class="post-content">
       
-        <h4 id="很多时候因为各种权限问题而自闭，其实无需登陆管理员账户就可以一键获取管理员权限，如下图所示："><a href="#很多时候因为各种权限问题而自闭，其实无需登陆管理员账户就可以一键获取管理员权限，如下图所示：" class="headerlink" title="很多时候因为各种权限问题而自闭，其实无需登陆管理员账户就可以一键获取管理员权限，如下图所示："></a>很多时候因为各种权限问题而自闭，其实无需登陆管理员账户就可以一键获取管理员权限，如下图所示：</h4><p><img src="/2019/02/03/win10一键获得管理员权限/图一.png" alt="图一" title="图一"></p>
-<h4 id="首先在桌面新建一个文本文件，然后复制粘贴以下神奇代码：首先在桌面新建一个文本文件，然后复制粘贴以下神奇代码："><a href="#首先在桌面新建一个文本文件，然后复制粘贴以下神奇代码：首先在桌面新建一个文本文件，然后复制粘贴以下神奇代码：" class="headerlink" title="首先在桌面新建一个文本文件，然后复制粘贴以下神奇代码：首先在桌面新建一个文本文件，然后复制粘贴以下神奇代码："></a>首先在桌面新建一个文本文件，然后复制粘贴以下神奇代码：首先在桌面新建一个文本文件，然后复制粘贴以下神奇代码：</h4><a id="more"></a>
-<pre><code>Windows Registry Editor Version 5.00
-[HKEY_CLASSES_ROOT\*\shell\runas]
-@=&quot;取得管理员所有权&quot;
-&quot;NoWorkingDirectory&quot;=&quot;&quot;
-[HKEY_CLASSES_ROOT\*\shell\runas\command]
-@=&quot;cmd.exe /c takeown /f \&quot;%1\&quot; &amp;&amp; icacls \&quot;%1\&quot; /grant administrators:F&quot;
-&quot;IsolatedCommand&quot;=&quot;cmd.exe /c takeown /f \&quot;%1\&quot; &amp;&amp; icacls \&quot;%1\&quot; /grant
-administrators:F&quot;
-[HKEY_CLASSES_ROOT\exefile\shell\runas2]
-@=&quot;取得管理员所有权&quot;
-&quot;NoWorkingDirectory&quot;=&quot;&quot;
-[HKEY_CLASSES_ROOT\exefile\shell\runas2\command]
-@=&quot;cmd.exe /c takeown /f \&quot;%1\&quot; &amp;&amp; icacls \&quot;%1\&quot; /grant administrators:F&quot;
-&quot;IsolatedCommand&quot;=&quot;cmd.exe /c takeown /f \&quot;%1\&quot; &amp;&amp; icacls \&quot;%1\&quot; /grant
-administrators:F&quot;
-[HKEY_CLASSES_ROOT\Directory\shell\runas]
-@=&quot;取得管理员所有权&quot;
-&quot;NoWorkingDirectory&quot;=&quot;&quot;
-[HKEY_CLASSES_ROOT\Directory\shell\runas\command]
-@=&quot;cmd.exe /c takeown /f \&quot;%1\&quot; /r /d y &amp;&amp; icacls \&quot;%1\&quot; /grant administrators:F/t&quot;
-&quot;IsolatedCommand&quot;=&quot;cmd.exe /c takeown /f \&quot;%1\&quot; /r /d y &amp;&amp; icacls \&quot;%1\&quot; /grant
-administrators:F /t&quot;
-</code></pre><h4 id="然后保存，命名为“管理员所有权-reg-”，注意后缀，选择保存类型是是选择“所有文件”！，然后就有如图文件。"><a href="#然后保存，命名为“管理员所有权-reg-”，注意后缀，选择保存类型是是选择“所有文件”！，然后就有如图文件。" class="headerlink" title="然后保存，命名为“管理员所有权.reg ”，注意后缀，选择保存类型是是选择“所有文件”！，然后就有如图文件。"></a>然后保存，命名为“管理员所有权.reg ”，注意后缀，选择保存类型是是选择“所有文件”！，然后就有如图文件。</h4><p><img src="/2019/02/03/win10一键获得管理员权限/图二.png" alt="图二" title="图二"></p>
-<h4 id="双击运行，不管弹出什么都选择“是”或者“确定”，然后就OK了"><a href="#双击运行，不管弹出什么都选择“是”或者“确定”，然后就OK了" class="headerlink" title="双击运行，不管弹出什么都选择“是”或者“确定”，然后就OK了"></a>双击运行，不管弹出什么都选择“是”或者“确定”，然后就OK了</h4>
+        <p>这次小编介绍的是学c语言必备的软件，随着时代发展，很多人都用上了win10，但是头疼的是在win10上使用这款vc++6.0总会遇上各种问题如兼容性，不过解决的方法还是有的，今天我们就一步步安装这个软件，我们先在win7上安装，然后是win10，亲测可以运行。<br><a id="more"></a><br>1.我们下载的是压缩包，首先解压，如图.<br><img src="/2019/02/04/VC-6-0软件安装使用（win10可用），送给需要学c语言的你/VC++6.0软件安装使用（win10可用），送给需要学c语言的你/1.jpg" alt=""></p>
+<p>2.然后点击打开解压后的文件<br><img src="/2019/02/04/VC-6-0软件安装使用（win10可用），送给需要学c语言的你/VC++6.0软件安装使用（win10可用），送给需要学c语言的你/2.jpg" alt=""></p>
+<p>3.找到文件里的这个应用程序，打开<br><img src="/2019/02/04/VC-6-0软件安装使用（win10可用），送给需要学c语言的你/VC++6.0软件安装使用（win10可用），送给需要学c语言的你/3.jpg" alt=""></p>
+<p>4.点击下一步<br><img src="/2019/02/04/VC-6-0软件安装使用（win10可用），送给需要学c语言的你/VC++6.0软件安装使用（win10可用），送给需要学c语言的你/4.jpg" alt=""></p>
+<p>5.还是下一步<br><img src="/2019/02/04/VC-6-0软件安装使用（win10可用），送给需要学c语言的你/VC++6.0软件安装使用（win10可用），送给需要学c语言的你/5.jpg" alt=""></p>
+<p>6.这里一般默认安装的路径是c盘，不过我们还是换成D盘<br><img src="/2019/02/04/VC-6-0软件安装使用（win10可用），送给需要学c语言的你/VC++6.0软件安装使用（win10可用），送给需要学c语言的你/6.jpg" alt=""></p>
+<p>7.点击下一步<br><img src="/2019/02/04/VC-6-0软件安装使用（win10可用），送给需要学c语言的你/VC++6.0软件安装使用（win10可用），送给需要学c语言的你/7.jpg" alt=""></p>
+<p>8.点击安装<br><img src="/2019/02/04/VC-6-0软件安装使用（win10可用），送给需要学c语言的你/VC++6.0软件安装使用（win10可用），送给需要学c语言的你/8.jpg" alt=""></p>
+<p>9.正在安装，等待<br><img src="/2019/02/04/VC-6-0软件安装使用（win10可用），送给需要学c语言的你/VC++6.0软件安装使用（win10可用），送给需要学c语言的你/9.jpg" alt=""></p>
+<p>10.安装完成，点击完成，试着运行是否可行<br><img src="/2019/02/04/VC-6-0软件安装使用（win10可用），送给需要学c语言的你/VC++6.0软件安装使用（win10可用），送给需要学c语言的你/10.jpg" alt=""></p>
+<p>11.这里直接点击“”运行程序“”这一栏<br><img src="/2019/02/04/VC-6-0软件安装使用（win10可用），送给需要学c语言的你/VC++6.0软件安装使用（win10可用），送给需要学c语言的你/11.jpg" alt=""></p>
+<p>12.ok了，可以运行，开始你的编程之路<br><img src="/2019/02/04/VC-6-0软件安装使用（win10可用），送给需要学c语言的你/VC++6.0软件安装使用（win10可用），送给需要学c语言的你/12.jpg" alt=""></p>
+<p>1.这次是win10，前面安装步骤如上，到这一步时。把那个勾选去掉，如图<br><img src="/2019/02/04/VC-6-0软件安装使用（win10可用），送给需要学c语言的你/VC++6.0软件安装使用（win10可用），送给需要学c语言的你/13.jpg" alt=""></p>
+<p>2.找到桌面上的快捷方式，然后右键点击“属性”<br><img src="/2019/02/04/VC-6-0软件安装使用（win10可用），送给需要学c语言的你/VC++6.0软件安装使用（win10可用），送给需要学c语言的你/14.jpg" alt=""></p>
+<p>3.“快捷方式”这一栏里找到“目标”，然后在电脑按照这个路径找到这个快捷方式<br><img src="/2019/02/04/VC-6-0软件安装使用（win10可用），送给需要学c语言的你/VC++6.0软件安装使用（win10可用），送给需要学c语言的你/15.jpg" alt=""></p>
+<p>4.找到这个快捷方式，删除！<br><img src="/2019/02/04/VC-6-0软件安装使用（win10可用），送给需要学c语言的你/VC++6.0软件安装使用（win10可用），送给需要学c语言的你/16.jpg" alt=""></p>
+<p>5.打开我们下载好的那个解压后的文件，找到如图这个东东，对，就是把它复制粘贴替换上图的那个东东<br><img src="/2019/02/04/VC-6-0软件安装使用（win10可用），送给需要学c语言的你/VC++6.0软件安装使用（win10可用），送给需要学c语言的你/17.jpg" alt=""></p>
+<p>6.点击运行桌面上的快捷方式，ok了，可以运行<br><img src="/2019/02/04/VC-6-0软件安装使用（win10可用），送给需要学c语言的你/VC++6.0软件安装使用（win10可用），送给需要学c语言的你/18.jpg" alt=""><br><strong>链接：<a href="https://pan.baidu.com/s/1KVCYqsdy46tq6kyd14aeQg" target="_blank" rel="noopener">https://pan.baidu.com/s/1KVCYqsdy46tq6kyd14aeQg</a><br>提取码：0s8h<br>复制这段内容后打开百度网盘手机App，操作更方便哦</strong></p>
+
       
     </div>
 
@@ -278,7 +264,7 @@ administrators:F /t&quot;
     </p>
     <p class="copyright-item">
       <span>原文链接: </span>
-      <a href="http://zxcwuzheng.github.io/2019/02/03/win10一键获得管理员权限/">http://zxcwuzheng.github.io/2019/02/03/win10一键获得管理员权限/</a>
+      <a href="http://zxcwuzheng.github.io/2019/02/04/VC-6-0软件安装使用（win10可用），送给需要学c语言的你/">http://zxcwuzheng.github.io/2019/02/04/VC-6-0软件安装使用（win10可用），送给需要学c语言的你/</a>
     </p>
     <p class="copyright-item">
       <span>许可协议: </span>
@@ -318,7 +304,9 @@ administrators:F /t&quot;
             
               <a href="/tags/windows/">windows</a>
             
-              <a href="/tags/技巧/">技巧</a>
+              <a href="/tags/软件/">软件</a>
+            
+              <a href="/tags/编程/">编程</a>
             
           </div>
         
@@ -326,12 +314,12 @@ administrators:F /t&quot;
         
   <nav class="post-nav">
     
-      <a class="prev" href="/2019/02/04/VC-6-0软件安装使用（win10可用），送给需要学c语言的你/">
-        <i class="iconfont icon-left"></i>
-        <span class="prev-text nav-default">VC++6.0软件安装使用（win10可用），送给需要学c语言的你</span>
-        <span class="prev-text nav-mobile">上一篇</span>
-      </a>
     
+      <a class="next" href="/2019/02/03/win10一键获得管理员权限/">
+        <span class="next-text nav-default">win10一键获得管理员权限</span>
+        <span class="prev-text nav-mobile">下一篇</span>
+        <i class="iconfont icon-right"></i>
+      </a>
     
   </nav>
 
