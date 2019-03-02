@@ -237,8 +237,8 @@
 <blockquote>
 <p>  #ClientAliveInterval 0</p>
 </blockquote>
-<p> #ClientAliveCountMax 3</p>
-<p><strong>去掉注释，改成</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ClientAliveInterval 30</span><br><span class="line">ClientAliveCountMax 86400</span><br></pre></td></tr></table></figure></p>
+<pre><code>#ClientAliveCountMax 3
+</code></pre><p><strong>去掉注释，改成</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ClientAliveInterval 30</span><br><span class="line">ClientAliveCountMax 86400</span><br></pre></td></tr></table></figure></p>
 <p><strong>这两行的意思分别是<br>1、客户端每隔多少秒向服务发送一个心跳数据<br>2、客户端多少秒没有相应，服务器自动断掉连接</strong></p>
 <p><strong>重启sshd服务</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service sshd restart</span><br></pre></td></tr></table></figure>
