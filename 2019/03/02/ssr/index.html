@@ -17,7 +17,7 @@
 
 
 
-  <meta name="description" content="阿里云服务器ssh经常一段时间就断掉解决办法">
+  <meta name="description" content="Ubuntu16.04搭建SSR服务器+锐速">
 
 
 
@@ -42,7 +42,7 @@
 
 
 
-<link rel="canonical" href="http://zxcwuzheng.github.io/2019/03/02/aliyun/">
+<link rel="canonical" href="http://zxcwuzheng.github.io/2019/03/02/ssr/">
 
 
 
@@ -90,7 +90,7 @@
   window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":true,"pjax":true};
 </script>
 
-    <title> 阿里云服务器ssh经常一段时间就断掉解决办法 - 混子的集合地 </title>
+    <title> Ubuntu16.04搭建SSR服务器+锐速 - 混子的集合地 </title>
   </head>
 
   <body><div id="mobile-navbar" class="mobile-navbar">
@@ -206,7 +206,7 @@
     <header class="post-header">
       <h1 class="post-title">
         
-          阿里云服务器ssh经常一段时间就断掉解决办法
+          Ubuntu16.04搭建SSR服务器+锐速
         
       </h1>
 
@@ -231,16 +231,18 @@
 
     <div class="post-content">
       
-        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/ssh/sshd_config</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
-<p><strong>找到下面两行</strong></p>
+        <p>要搭建梯子那么必须买国外的服务器，要买哪一种，这里推荐vultr，当然还有其它的服务&gt;器，可以参考此网址对vps的评测:</p>
 <blockquote>
-<p>#ClientAliveInterval 0<br>#ClientAliveCountMax 3</p>
+<p><a href="https://www.vpsdx.com/" target="_blank" rel="noopener">https://www.vpsdx.com/</a><br><a href="https://www.zhujiceping.com/vps-alipay-weixin" target="_blank" rel="noopener">https://www.zhujiceping.com/vps-alipay-weixin</a><br><a id="more"></a><br><strong>选择系统的话是Ubuntu16.04，此教程只适用于此系统内核，如果不是，请自行更换系统或内核</strong></p>
 </blockquote>
-<p><strong>去掉注释，改成</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ClientAliveInterval 30</span><br><span class="line">ClientAliveCountMax 86400</span><br></pre></td></tr></table></figure></p>
-<p><strong>这两行的意思分别是<br>1、客户端每隔多少秒向服务发送一个心跳数据<br>2、客户端多少秒没有相应，服务器自动断掉连接</strong></p>
-<p><strong>重启sshd服务</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service sshd restart</span><br></pre></td></tr></table></figure>
+<p><strong>1.安装ssr</strong><br>下载并执行 ShadowsocksR 单/多端口一键管理脚本<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/ssr.sh &amp;&amp; chmod +x ssr.sh &amp;&amp; bash ssr.sh</span><br></pre></td></tr></table></figure></p>
+<p>或者下面命令，选择一条即可<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -N --no-check-certificate https://softs.fun/Bash/ssr.sh &amp;&amp; chmod +x ssr.sh &amp;&amp; bash ssr.sh</span><br></pre></td></tr></table></figure></p>
+<p><strong>2.运行脚本后，依次设置信息</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">ShadowsocksR 一键管理脚本 [v2.0.38]</span><br><span class="line">  ---- Toyo | doub.io/ss-jc42 ----</span><br><span class="line"> </span><br><span class="line">  1. 安装 ShadowsocksR</span><br><span class="line">  2. 更新 ShadowsocksR</span><br><span class="line">  3. 卸载 ShadowsocksR</span><br><span class="line">  4. 安装 libsodium(chacha20)</span><br><span class="line">————————————</span><br><span class="line">  5. 查看 账号信息</span><br><span class="line">  6. 显示 连接信息</span><br><span class="line">  7. 设置 用户配置</span><br><span class="line">  8. 手动 修改配置</span><br><span class="line">  9. 切换 端口模式</span><br><span class="line">————————————</span><br><span class="line"> 10. 启动 ShadowsocksR</span><br><span class="line"> 11. 停止 ShadowsocksR</span><br><span class="line"> 12. 重启 ShadowsocksR</span><br><span class="line"> 13. 查看 ShadowsocksR 日志</span><br><span class="line">————————————</span><br><span class="line"> 14. 其他功能</span><br><span class="line"> 15. 升级脚本</span><br><span class="line"> </span><br><span class="line">请输入数字 [1-15]：</span><br></pre></td></tr></table></figure></p>
+<p>注：安装过程中会询问是否设置协议和混淆插件兼容原版，是指兼容 SS，可以根据需求进行选择，原则上不推荐使用 SS 客户端，选择 n<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">是否设置 协议插件兼容原版(_compatible)？[Y/n]n</span><br><span class="line">是否设置 混淆插件兼容原版(_compatible)？[Y/n]n</span><br></pre></td></tr></table></figure></p>
+<p><strong>3.安装锐速</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget xiaofd.github.io/ruisu.sh &amp;&amp; bash ruisu.sh</span><br></pre></td></tr></table></figure></p>
+<p>该脚本会更换系统内核，并自动重启，重启后不出问题的话就已经安装好了锐速并启动，可以使用ps -ef | grep(可做文件内的字符串查找) appex查看是否在运行，同时注意 ShadowsocksR 是否已启动</p>
+<p>安装后的文件放在/appex目录下，运行脚本为/appex/bin/serverSpeeder.sh，下面是该脚本的命令参数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@ubuntu:~# /appex/bin/serverSpeeder.sh</span><br></pre></td></tr></table></figure></p>
+<p>需要注意的是在停止后重新运行需要serverSpeeder.sh renewLic生成新的 License</p>
 
       
     </div>
@@ -256,7 +258,7 @@
     </p>
     <p class="copyright-item">
       <span>原文链接: </span>
-      <a href="http://zxcwuzheng.github.io/2019/03/02/aliyun/">http://zxcwuzheng.github.io/2019/03/02/aliyun/</a>
+      <a href="http://zxcwuzheng.github.io/2019/03/02/ssr/">http://zxcwuzheng.github.io/2019/03/02/ssr/</a>
     </p>
     <p class="copyright-item">
       <span>许可协议: </span>
@@ -304,15 +306,9 @@
         
   <nav class="post-nav">
     
-      <a class="prev" href="/2019/03/02/ssr/">
-        <i class="iconfont icon-left"></i>
-        <span class="prev-text nav-default">Ubuntu16.04搭建SSR服务器+锐速</span>
-        <span class="prev-text nav-mobile">上一篇</span>
-      </a>
     
-    
-      <a class="next" href="/2019/03/02/wenku/">
-        <span class="next-text nav-default">冰点文库下载器</span>
+      <a class="next" href="/2019/03/02/aliyun/">
+        <span class="next-text nav-default">阿里云服务器ssh经常一段时间就断掉解决办法</span>
         <span class="prev-text nav-mobile">下一篇</span>
         <i class="iconfont icon-right"></i>
       </a>
