@@ -234,8 +234,9 @@
         <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/ssh/sshd_config</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 <p><strong>找到下面两行</strong></p>
-<p>  #ClientAliveInterval 0</p>
-<p>  #ClientAliveCountMax 3</p>
+<blockquote>
+<p>#ClientAliveInterval 0<br>#ClientAliveCountMax 3</p>
+</blockquote>
 <p><strong>去掉注释，改成</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ClientAliveInterval 30</span><br><span class="line">ClientAliveCountMax 86400</span><br></pre></td></tr></table></figure></p>
 <p><strong>这两行的意思分别是<br>1、客户端每隔多少秒向服务发送一个心跳数据<br>2、客户端多少秒没有相应，服务器自动断掉连接</strong></p>
 <p><strong>重启sshd服务</strong></p>
