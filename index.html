@@ -233,6 +233,8 @@
       
         
         
+          
+        
 
         
           <p> 考核目标：</p>
@@ -240,79 +242,10 @@
 <li>了解Internet与Web技术的基本概念</li>
 <li>理解Web技术的主要组成部分（URL HTTP HTMl）</li>
 <li>理解和掌握Web浏览器与服务器的基本概念和工作原理</li>
-<li><p>了解Web应用开发构架和开发工具平台</p>
-<p>###Web与Internet技术<br>####Internet介绍<br>Internet常被称为互联网，E-mail FTP和Telnet时Internet上较早出现的重要应用，特别是E-mail仍然是目前Internet上最主要的应用之一。<br>1974年，TCP/IP协议问世，这个协议定义了一种在计算机网络间传送报文（文件或命令）</p>
-</li>
-</ul>
-<p>####Web介绍<br>WWW（World Wide Web）常被被称为万维网，简称Web。Web是互联网上的一种<strong>应用服务</strong>，使用<strong>超文本技术</strong>将遍布全球的各种信息资源链接起来，信息资源彼此通过<strong>超链接</strong>连接起来。<br>URI：全局的统一的资源标识符，资源通过<strong>超文本传输协议HTTP（Hypertext Transfer Protocol）</strong>传送给用户。<br>Web技术由万维网联盟（World Wide Web Consortium，简称<strong>W3C</strong>）来维护和管理。</p>
-<p>####Web技术特点</p>
-<ul>
-<li>Web页面具有丰富的多媒体表现特征</li>
-<li>Web具备超级链接和快速导航能力</li>
-<li>Web具有平台独立性</li>
-<li>Web具有分部自治特性</li>
-<li>Web具有动态交互特性</li>
-</ul>
-<p>###Web技术的主要组成</p>
-<p>####IP地址与网络域名<br>IP地址：每个连接在Internet上的主机分配的一个32位的地址，按照<strong>TCP/IP协议</strong>规定，IP地址用<strong>二进制</strong>来表示，长32位，即4个字节，但经常用<strong>十进制</strong>表示，中间用“.”分开，以此方便用户记忆<br>域名：与网络上的数字型IP地址相对应的字符型地址，域名除了识别功能还有起到引导，宣传和代表等作用。<br>域名系统由DNS服务器来管理和解析。<br>一个IP可对应多个域名，一个域名也可以对应多个IP地址</p>
-<p>####统一资源定位符（URL）</p>
-<p>URL:通常称之为Web地址或网址，是用于完整描述Internet上网页和其他信息资源地址的一种标志方法<br>统一资源定位符URL常见的基本格式位</p>
-<blockquote>
-<p>&lt;访问协议&gt;：//&lt;主机名&gt;:&lt;端口号&gt;/&lt;文件路径&gt;</p>
-</blockquote>
-<p>访问方式有HTTP（超文本传输协议），FTP（文件传输协议）</p>
-<p>####HTTP协议（Hypertext Transfer Protocol）</p>
-<p>HTTP在可靠的网络层协议（例如TCP/IP的基础上提供了在Web服务器和客户机之间传输信息的一种机制，是一种<strong>应用层协议</strong>）<br>一次HTTP协议操作称为一个事物，工作过程可分为四步：</p>
-<ol>
-<li>客户机与服务器建立连接</li>
-<li>客户机发送一个请求给服务器</li>
-<li>服务器处理请求并给予相应的响应信息</li>
-<li>客户机接受服务区返回的信息</li>
-</ol>
-<p>HTTP协议的主要特点：<br>（1）支持客户机/服务器模式<br>（2）简单快速<br>（3）灵活<br>（4）无状态<br>（5）支持内容协商<br>（6）可扩展性</p>
-<p>####HTML语言</p>
-<p>HTML（Hypertext Markup Language）：<strong>超文本标记语言</strong>，是用于描述网页文档的一种标记语言，一个静态网页常对应于一个HTML文件，文件以.htm或.html位扩展名。<br>HTML文档制作主要特点：<br>（1）简易性<br>（2）可扩展性<br>（3）平台无关性</p>
-<p>###Web浏览器与服务器</p>
-<p>####Web浏览器</p>
-<p>浏览器：运行在用户的机器上用来展现和浏览来自Web服务器或者本地文件系统中的HTML页面，并让用户与这些页面交互的一种客户机软件。<br>手机浏览器需要服务器进行Web页面的<strong>优化</strong>和数据的<strong>压缩</strong>处理。</p>
-<p>####Web服务器</p>
-<p>Web服务器是指<strong>提供Web服务</strong>的服务器，服务器（程序）是一种<strong>被动程序</strong>，不仅能够储存信息，还能运行脚本和程序。</p>
-<p>主流的服务器：</p>
-<ul>
-<li>Windows：IIS Apache Tomcat系列GlassFish以及商用的WebLogicdeng</li>
-<li>Unix和Linux：Apace</li>
-</ul>
-<p>####Web工作原理</p>
-<ol>
-<li>客户机（浏览器）发送请求</li>
-<li>Web服务器处理并返回响应信息</li>
-<li>浏览器浏览来自服务器的信息</li>
-</ol>
-<p>###Web应用开发技术</p>
-<p>####Web基本结构</p>
-<p>C/S是Client/Server的缩写<br>B/S是Browser/Server的缩写<br>B/S相比C/S架构的优势:</p>
-<ul>
-<li>维护和升级方式简单</li>
-<li>成本降低，选择更多</li>
-<li>应用服务器运行数据负荷较重</li>
-</ul>
-<p>####三层与多层架构</p>
-<p>在B/S架构的基础上，可以进一步扩充成三层架构或多层架构，主要是在客户机端浏览器与数据可之间加入一个中间层，也叫组件层或应用层，三层指的是逻辑上的三层。</p>
-<p>####JSP开发技术</p>
-<p>JSP（Java Server Pages）是一种建立的动态网页技术，它是在传统的网页HTML文件中插入Java程序段（Servlet）和JSP标记（tag），形成JSP文件（.jsp）。<br>JSP在首次被访问的时候被应用服务器转换为Servlt，在以后的运行中，服务器直接调用这个Servlet，而不再访问JSP页面。JSP的实质仍然是Servlet。</p>
-<p>####ASP.NET开发技术</p>
-<p>ASP.NET是由微软在.NET Framework框架中所提供的，包含了用于开发Web应用程序的类库，其文件后缀为.aspx。</p>
-<p>####其它开发技术</p>
-<p>PHP(Hypertext Preprocessor)是超文本与预处理语言，是一种在服务器端执行的嵌入HTML文档的脚本语言。</p>
-<p>###小结</p>
-<ul>
-<li>TCP/IP协议是一个协议集，IP层负责数据包的寻址和路由等，TCP层为传输层，负责流量控制等，应用层主要有HTTP协议 Telnet协议，FTP协议等</li>
-<li>常见的客户机端编程技术有VBScript JavaScript Java Applet等</li>
-<li>常见的服务器端编程技术有JSP ASP和ASP.NET</li>
-<li>在URL中，默认的Web服务器的端口号是80</li>
-<li>Web的工作模式是浏览器/服务器</li>
-</ul>
-
+<li>了解Web应用开发构架和开发工具平台<br>###Web与Internet技术<br>####Internet介绍</li></ul>
+          <div class="read-more">
+            <a href="/2019/03/03/Web1/" class="read-more-link">阅读更多</a>
+          </div>
         
       
     </div>
