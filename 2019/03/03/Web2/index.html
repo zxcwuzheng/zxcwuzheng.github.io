@@ -241,6 +241,7 @@
         <blockquote>
 <p>考核目标：<br> 1.掌握超文本传输协议（HTTP）的基本概念和交互模型<br> 2.掌握HTTP协议的消息格式，常用请求方法，消息头和响应状态<br> 3.能够初步分析HTTP请求消息和响应消息的内容</p>
 </blockquote>
+<a id="more"></a>
 <h3 id="HTTP的基本概念与交互模型"><a href="#HTTP的基本概念与交互模型" class="headerlink" title="HTTP的基本概念与交互模型"></a>HTTP的基本概念与交互模型</h3><h4 id="HTTP的基本概念"><a href="#HTTP的基本概念" class="headerlink" title="HTTP的基本概念"></a>HTTP的基本概念</h4><p>HTTP协议是一种通用的，无状态的应用层协议，基于标砖的客户机/服务器模型。</p>
 <p>HTTP协议的特点：</p>
 <ul>
@@ -267,7 +268,7 @@
 <p>HTTP代理（Proxy）：一个既做服务器又做客户机的中介程序，主要工作是转发消息<br>两种代理：<br>1.透明代理（Transparently Proxy）：除了必要的处理（身份证认证）之外对HTTP请求消息和响应消息不做任何其他修改<br>2.非透明代理：会对HTTP请求消息和响应消息进行分析和修改</p>
 <h4 id="HTTP消息格式"><a href="#HTTP消息格式" class="headerlink" title="HTTP消息格式"></a>HTTP消息格式</h4><p>客户机请求：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">GET /hello.html HTTP/1.1</span><br><span class="line"></span><br><span class="line">Hsot: test.website.com</span><br><span class="line"></span><br><span class="line">Accept: */*</span><br><span class="line"></span><br><span class="line">Connection: keep-alive</span><br><span class="line"></span><br><span class="line">User-Agent: Firefox/17.0</span><br></pre></td></tr></table></figure></p>
 <p>解析：第一行是开始行（start-line），第3行只第9行是消息头，每行以回车加换行符（简称CRLF）结束，第10行只有空行，表示消息头（headers）结束，无消息体（message-body）。本消息含义：向服务器”test.website.com”请求获取”/hello.html”页面</p>
-<h3 id="HTTP请求消息"><a href="#HTTP请求消息" class="headerlink" title="HTTP请求消息"></a>HTTP请求消息</h3><h4 id="HTTP请求消息格式"><a href="#HTTP请求消息格式" class="headerlink" title="HTTP请求消息格式"></a>HTTP请求消息格式</h4><p>HTTP请求消息的格式如下所示：<br> | Start-line | Request-Method Request_URI HTTP-Version CRLF |<br> |————|———————————————-|<br> |Headers     |Request-Headers CRLF(0或n个)CRLF              |<br> |            |CRLF(空行)                                    |<br> |Message-body|Request-body(只对某些Request-Method)有效      |</p>
+<h3 id="HTTP请求消息"><a href="#HTTP请求消息" class="headerlink" title="HTTP请求消息"></a>HTTP请求消息</h3><h4 id="HTTP请求消息格式"><a href="#HTTP请求消息格式" class="headerlink" title="HTTP请求消息格式"></a>HTTP请求消息格式</h4><p>HTTP请求消息的格式如下所示：<br>| Start-line | Request-Method Request_URI HTTP-Version CRLF |<br>|————|———————————————-|<br>|Headers     |Request-Headers CRLF(0或n个)CRLF              |<br>|            |CRLF(空行)                                    |<br>|Message-body|Request-body(只对某些Request-Method)有效      |</p>
 <p>开始行：</p>
 <ul>
 <li>Request-Method：请求方法</li>
@@ -355,7 +356,7 @@
 <li>Status-Code：状态码</li>
 <li>Request——Phrase：状态说明<br>后面是消息头区（可没有），根据消息实际情况，消息内容可以出现单独的回车或换行符。紧跟着是消息体(可无)</li>
 </ul>
-<h4 id="HTTP响应状态码"><a href="#HTTP响应状态码" class="headerlink" title="HTTP响应状态码"></a>HTTP响应状态码</h4><p>HTTP响应状态码类别<br>|1<strong>|信息，服务器收到请求，服务器继续执行操作|<br>|—|——————————————–|<br>|2</strong>|成功，操作被成功接收并处理|<br>|3<strong>|重定向，客户机要进一步的操作以完成请求|<br>|4</strong>|客户端错误，请求包含语法错误或无法完成请求|<br>|5**|服务器错误，服务器在处理请求的过程中发生了错误|</p>
+<h4 id="HTTP响应状态码"><a href="#HTTP响应状态码" class="headerlink" title="HTTP响应状态码"></a>HTTP响应状态码</h4><p>HTTP响应状态码类别<br>|1**|信息，服务器收到请求，服务器继续执行操作|<br>|—|——————————————–|<br>|2**|成功，操作被成功接收并处理|<br>|3**|重定向，客户机要进一步的操作以完成请求|<br>|4**|客户端错误，请求包含语法错误或无法完成请求|<br>|5**|服务器错误，服务器在处理请求的过程中发生了错误|</p>
 <h3 id="HTTP消息头"><a href="#HTTP消息头" class="headerlink" title="HTTP消息头"></a>HTTP消息头</h3><p> 在HTTP请求消息和响应消息中通常都会包含一个或多个消息头，消息头通常被称为“字段（Field）”，消息头是客户机与服务器进行参数协商，传递参数，描述消息体等的重要实体。<br>每个消息体头的格式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">字段名（Field Name）： 字段值（Field Value）</span><br></pre></td></tr></table></figure></p>
 <p>字段名+冒号+空格+字段值,字段名不区分大小写</p>
 <h4 id="内容协商消息头"><a href="#内容协商消息头" class="headerlink" title="内容协商消息头"></a>内容协商消息头</h4><p>“内容协商”是指当资源存在多种表现形式时，从中选择对用户而言“最合适”的表现形式。<br>HTTP有两种内容协商的方式：服务器驱动协商和客户驱动协商。</p>
