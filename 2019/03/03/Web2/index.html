@@ -17,8 +17,12 @@
 
 
 
+  <meta name="description" content="HTTP协议基础">
 
 
+
+
+  <meta name="keywords" content="编程, 技巧, 混子的集合地">
 
 
 
@@ -38,7 +42,7 @@
 
 
 
-<link rel="canonical" href="http://zxcwuzheng.github.io/">
+<link rel="canonical" href="http://zxcwuzheng.github.io/2019/03/03/Web2/">
 
 
 
@@ -86,7 +90,7 @@
   window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":true,"pjax":true};
 </script>
 
-    <title> 混子的集合地 </title>
+    <title> HTTP协议基础 - 混子的集合地 </title>
   </head>
 
   <body><div id="mobile-navbar" class="mobile-navbar">
@@ -198,15 +202,11 @@
           <div id="content" class="content">
             
   
-  <section id="posts" class="posts">
-    
-      
-        
   <article class="post">
     <header class="post-header">
       <h1 class="post-title">
         
-          <a class="post-link" href="/2019/03/03/Web2/">HTTP协议基础</a>
+          HTTP协议基础
         
       </h1>
 
@@ -227,15 +227,18 @@
 
     
     
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#HTTP的基本概念与交互模型"><span class="toc-text">HTTP的基本概念与交互模型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#HTTP的基本概念"><span class="toc-text">HTTP的基本概念</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#HTTP协议交互模型"><span class="toc-text">HTTP协议交互模型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#HTTP消息格式"><span class="toc-text">HTTP消息格式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTTP请求消息"><span class="toc-text">HTTP请求消息</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#HTTP请求消息格式"><span class="toc-text">HTTP请求消息格式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#请求方法"><span class="toc-text">请求方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#HTTP请求URI"><span class="toc-text">HTTP请求URI</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTTP响应消息"><span class="toc-text">HTTP响应消息</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#消息格式"><span class="toc-text">消息格式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#HTTP响应状态码"><span class="toc-text">HTTP响应状态码</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTTP消息头"><span class="toc-text">HTTP消息头</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#内容协商消息头"><span class="toc-text">内容协商消息头</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#缓存控制消息头"><span class="toc-text">缓存控制消息头</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#实体描述消息头"><span class="toc-text">实体描述消息头</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#条件控制消息头"><span class="toc-text">条件控制消息头</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#其它消息头"><span class="toc-text">其它消息头</span></a></li></ol></li></ol>
+    </div>
+  </div>
+
 
 
     <div class="post-content">
       
-        
-        
-
-        
-          <blockquote>
+        <blockquote>
 <p>考核目标：<br> 1.掌握超文本传输协议（HTTP）的基本概念和交互模型<br> 2.掌握HTTP协议的消息格式，常用请求方法，消息头和响应状态<br> 3.能够初步分析HTTP请求消息和响应消息的内容</p>
 </blockquote>
 <h3 id="HTTP的基本概念与交互模型"><a href="#HTTP的基本概念与交互模型" class="headerlink" title="HTTP的基本概念与交互模型"></a>HTTP的基本概念与交互模型</h3><h4 id="HTTP的基本概念"><a href="#HTTP的基本概念" class="headerlink" title="HTTP的基本概念"></a>HTTP的基本概念</h4><p>HTTP协议是一种通用的，无状态的应用层协议，基于标砖的客户机/服务器模型。</p>
@@ -391,503 +394,90 @@
 <li>Referer字段：用于请求字段，指明请求的URI是哪里获得</li>
 </ul>
 
-        
       
     </div>
 
     
+      
+      
 
-    
+  <div class="post-copyright">
+    <p class="copyright-item">
+      <span>原文作者: </span>
+      <a href="http://zxcwuzheng.github.io">yiwu zhang</a>
+    </p>
+    <p class="copyright-item">
+      <span>原文链接: </span>
+      <a href="http://zxcwuzheng.github.io/2019/03/03/Web2/">http://zxcwuzheng.github.io/2019/03/03/Web2/</a>
+    </p>
+    <p class="copyright-item">
+      <span>许可协议: </span>
+      
+      本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+    </p>
+  </div>
 
-  </article>
+
 
       
-        
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2019/03/03/Web1/">计算机二级Web（1）：Web技术基础</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2019-03-03
-        </span>
-        
-          <span class="post-category">
-            
-              <a href="/categories/学习教程/">学习教程</a>
-            
-          </span>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-
-    <div class="post-content">
       
-        
-        
-          
-        
+  <div class="post-reward">
+    <input type="checkbox" name="reward" id="reward" hidden>
+    <label class="reward-button" for="reward">赞赏支持</label>
+    <div class="qr-code">
+      
+      
+        <label class="qr-code-image" for="reward">
+          <img class="image" src="/image/wx.png" title="wechat">
+        </label>
+      
+      
+        <label class="qr-code-image" for="reward">
+          <img class="image" src="/image/zfb.jpg" title="alipay">
+        </label>
+      
+    </div>
+  </div>
 
+    
+
+    
+      <footer class="post-footer">
         
-          <p> 考核目标：</p>
-<ul>
-<li>了解Internet与Web技术的基本概念</li>
-<li>理解Web技术的主要组成部分（URL HTTP HTMl）</li>
-<li>理解和掌握Web浏览器与服务器的基本概念和工作原理</li>
-<li>了解Web应用开发构架和开发工具平台<h3 id="Web与Internet技术"><a href="#Web与Internet技术" class="headerlink" title="Web与Internet技术"></a>Web与Internet技术</h3><h4 id="Internet介绍"><a href="#Internet介绍" class="headerlink" title="Internet介绍"></a>Internet介绍</h4></li></ul>
-          <div class="read-more">
-            <a href="/2019/03/03/Web1/" class="read-more-link">阅读更多</a>
+          <div class="post-tags">
+            
+              <a href="/tags/编程/">编程</a>
+            
+              <a href="/tags/技巧/">技巧</a>
+            
           </div>
         
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-      
-        
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2019/03/02/ssr/">Ubuntu16.04搭建SSR服务器+锐速</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2019-03-02
-        </span>
-        
-          <span class="post-category">
-            
-              <a href="/categories/学习技巧/">学习技巧</a>
-            
-          </span>
         
         
-      </div>
-    </header>
-
+  <nav class="post-nav">
     
     
-
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <p>要搭建梯子那么必须买国外的服务器，要买哪一种，这里推荐vultr，当然还有其它的服务&gt;器，可以参考此网址对vps的评测:</p>
-<blockquote>
-<p><a href="https://www.vpsdx.com/" target="_blank" rel="noopener">https://www.vpsdx.com/</a><br><a href="https://www.zhujiceping.com/vps-alipay-weixin" target="_blank" rel="noopener">https://www.zhujiceping.com/vps-alipay-weixin</a><br></p></blockquote>
-          <div class="read-more">
-            <a href="/2019/03/02/ssr/" class="read-more-link">阅读更多</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-      
-        
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2019/03/02/aliyun/">阿里云服务器ssh经常一段时间就断掉解决办法</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2019-03-02
-        </span>
-        
-          <span class="post-category">
-            
-              <a href="/categories/学习技巧/">学习技巧</a>
-            
-          </span>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/ssh/sshd_config</span><br></pre></td></tr></table></figure>
-          <div class="read-more">
-            <a href="/2019/03/02/aliyun/" class="read-more-link">阅读更多</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-      
-        
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2019/03/02/wenku/">冰点文库下载器</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2019-03-02
-        </span>
-        
-          <span class="post-category">
-            
-              <a href="/categories/学习资源/">学习资源</a>
-            
-          </span>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <blockquote>
-<p>冰点文库下载无需积分就可以自由下载百度文库和豆丁文库文档，无需注册和登录。<br>下载的文档最终生成高清晰度的pdf格式文档!</p>
-</blockquote>
-          <div class="read-more">
-            <a href="/2019/03/02/wenku/" class="read-more-link">阅读更多</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-      
-        
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2019/03/01/sketchup/">ketchUp Pro 2018软件安装使用教程</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2019-03-01
-        </span>
-        
-          <span class="post-category">
-            
-              <a href="/categories/软件安装/">软件安装</a>
-            
-          </span>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <h2 id="本期介绍的是草图大师2018版，再次声明：仅供学习！"><a href="#本期介绍的是草图大师2018版，再次声明：仅供学习！" class="headerlink" title="本期介绍的是草图大师2018版，再次声明：仅供学习！"></a>本期介绍的是草图大师2018版，再次声明：仅供学习！</h2><blockquote>
-<p>草图大师是谷歌公司推出的一款3D建模软件，官方将它比喻作电子设计中的“铅笔”，其主要特点就是使用快速、可靠、有趣。使用sketchup中文版设计师们可以在很短的时间完成大型的3D设计，兼容和扩展性很好，可以与3dsmax、 autocad等软件结合使用，人人都可以快速上手。从业余设计、居家环境的改善，到设计大型且复杂的住宅区、商业区、工业区与都会区等计划，皆可用 草图大师进行，并获得立体视觉化的效果。<br></p></blockquote>
-          <div class="read-more">
-            <a href="/2019/03/01/sketchup/" class="read-more-link">阅读更多</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-      
-        
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2019/02/06/spss/">SPSS 24软件安装</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2019-02-06
-        </span>
-        
-          <span class="post-category">
-            
-              <a href="/categories/软件安装/">软件安装</a>
-            
-          </span>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <p><strong>新版本增强增加了大量的功能，支持中文界面，功能的针对性也非常强，对于统计专业而言是SPSS是必须掌握的得力工具，而对于非统计专业而言，他也是最为通用的数据分析平台和综合性统计分析工具。无论是初学者、熟练者及精通者都非常适用，很多群体只需要适当的练习，就能够掌握简单的操作分析，因此SPSS也特别受非统计专业数据分析人员的青睐。</strong><br></p>
-          <div class="read-more">
-            <a href="/2019/02/06/spss/" class="read-more-link">阅读更多</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-      
-        
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2019/02/06/office/">Office2016专业增强版软件安装教程</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2019-02-06
-        </span>
-        
-          <span class="post-category">
-            
-              <a href="/categories/软件安装/">软件安装</a>
-            
-          </span>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <p><strong>本期介绍的是16版，虽然19版的体验版以发布，但只能网络安装且复杂，所以这里就不介绍了。<br></strong></p>
-          <div class="read-more">
-            <a href="/2019/02/06/office/" class="read-more-link">阅读更多</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-      
-        
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2019/02/06/ps/">Photoshop CC 2018免登录免激活</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2019-02-06
-        </span>
-        
-          <span class="post-category">
-            
-              <a href="/categories/软件安装/">软件安装</a>
-            
-          </span>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <p>本期介绍的是ps2018，网上很多介绍的安装教程都需要登陆然后激活，但这个无需登录！无需激活！安装后即能使用！<br></p>
-          <div class="read-more">
-            <a href="/2019/02/06/ps/" class="read-more-link">阅读更多</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-      
-        
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2019/02/06/CAD/">Auto CAD2019软件安装使用</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2019-02-06
-        </span>
-        
-          <span class="post-category">
-            
-              <a href="/categories/软件安装/">软件安装</a>
-            
-          </span>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <p>Autodesk Autocad 2019是款非常优秀的cad制图软件。autodesk autocad 2019可帮助用户用于二维绘图、三维设计等工作，全新版本为用户带来了全新的功能，是目前市面上运用非常广泛的一款制图软件，有需要的不妨下载体验一下。Autodesk Autocad 2019是款非常优秀的cad制图软件。autodesk autocad 2019可帮助用户用于二维绘图、三维设计等工作，全新版本为用户带来了全新的功能，是目前市面上运用非常广泛的一款制图软件，有需要的不妨下载体验一下。<br></p>
-          <div class="read-more">
-            <a href="/2019/02/06/CAD/" class="read-more-link">阅读更多</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-      
-      
-  <nav class="pagination">
-    
-    
-      <a class="next" href="/page/2/">
-        <span class="next-text">下一页</span>
+      <a class="next" href="/2019/03/03/Web1/">
+        <span class="next-text nav-default">计算机二级Web（1）：Web技术基础</span>
+        <span class="prev-text nav-mobile">下一篇</span>
         <i class="iconfont icon-right"></i>
       </a>
     
   </nav>
 
 
+      </footer>
     
-  </section>
+
+  </article>
+
 
           </div>
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
       </main>
@@ -968,6 +558,11 @@
     </div>
 
     
+  
+  
+
+  
+
 
 
     
