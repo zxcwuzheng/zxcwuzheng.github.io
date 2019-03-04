@@ -356,7 +356,7 @@
 <li>Status-Code：状态码</li>
 <li>Request——Phrase：状态说明<br>后面是消息头区（可没有），根据消息实际情况，消息内容可以出现单独的回车或换行符。紧跟着是消息体(可无)</li>
 </ul>
-<h4 id="HTTP响应状态码"><a href="#HTTP响应状态码" class="headerlink" title="HTTP响应状态码"></a>HTTP响应状态码</h4><p>HTTP响应状态码类别<br>|1**|信息，服务器收到请求，服务器继续执行操作|<br>|—|——————————————–|<br>|2**|成功，操作被成功接收并处理|<br>|3**|重定向，客户机要进一步的操作以完成请求|<br>|4**|客户端错误，请求包含语法错误或无法完成请求|<br>|5**|服务器错误，服务器在处理请求的过程中发生了错误|</p>
+<h4 id="HTTP响应状态码"><a href="#HTTP响应状态码" class="headerlink" title="HTTP响应状态码"></a>HTTP响应状态码</h4><p>HTTP响应状态码类别<br>|1**|信息，服务器收到请求，服务器继续执行操作|<br>|—-|——————————————–|<br>|2**|成功，操作被成功接收并处理|<br>|3**|重定向，客户机要进一步的操作以完成请求|<br>|4**|客户端错误，请求包含语法错误或无法完成请求|<br>|5**|服务器错误，服务器在处理请求的过程中发生了错误|</p>
 <h3 id="HTTP消息头"><a href="#HTTP消息头" class="headerlink" title="HTTP消息头"></a>HTTP消息头</h3><p> 在HTTP请求消息和响应消息中通常都会包含一个或多个消息头，消息头通常被称为“字段（Field）”，消息头是客户机与服务器进行参数协商，传递参数，描述消息体等的重要实体。<br>每个消息体头的格式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">字段名（Field Name）： 字段值（Field Value）</span><br></pre></td></tr></table></figure></p>
 <p>字段名+冒号+空格+字段值,字段名不区分大小写</p>
 <h4 id="内容协商消息头"><a href="#内容协商消息头" class="headerlink" title="内容协商消息头"></a>内容协商消息头</h4><p>“内容协商”是指当资源存在多种表现形式时，从中选择对用户而言“最合适”的表现形式。<br>HTTP有两种内容协商的方式：服务器驱动协商和客户驱动协商。</p>
