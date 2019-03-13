@@ -239,34 +239,36 @@
     <div class="post-content">
       
         <h3 id="元组：元组是一组固定长度，不可改变地Python对象。"><a href="#元组：元组是一组固定长度，不可改变地Python对象。" class="headerlink" title="元组：元组是一组固定长度，不可改变地Python对象。"></a>元组：元组是一组固定长度，不可改变地Python对象。</h3><h4 id="创建元组："><a href="#创建元组：" class="headerlink" title="创建元组："></a>创建元组：</h4><ul>
-<li>用逗号分隔序列<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tup = <span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span></span><br><span class="line">print(tup)</span><br><span class="line">输出：</span><br><span class="line">(<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>)</span><br></pre></td></tr></table></figure>
-</li>
+<li>用逗号分隔序列</li>
 </ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tup = <span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span></span><br><span class="line">print(tup)</span><br><span class="line">输出：</span><br><span class="line">(<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>)</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 <ul>
-<li><p>定义更复杂地表达式时，需要用括号将值包起来。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tup = (4,5,6),(7,8)</span><br><span class="line">print(tup)</span><br><span class="line">输出：</span><br><span class="line">((4,5,6),(7,8))</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>可以使用tuple函数将任意序列或迭代器转换为元组</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">tup = tuple([1,2,3])</span><br><span class="line">print(tup)</span><br><span class="line">print(tuple(&apos;string&apos;))</span><br><span class="line">输出：</span><br><span class="line">(1,2,3)</span><br><span class="line">(&apos;s&apos;,&apos;t&apos;,&apos;r&apos;,&apos;i&apos;,&apos;n&apos;,&apos;g&apos;)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>可以用“+”号连接元组</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tup = (1,2,3)+(4,5)+(&apos;far&apos;,)</span><br><span class="line">print(tup)</span><br><span class="line">输出：</span><br><span class="line">(1,2,3,4,5,&apos;far&apos;)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>将元组乘以整数，则会和列表一样，生成含有多份拷贝地元组</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tup = (&apos;a&apos;,&apos;b&apos;)*4</span><br><span class="line">print(tup)</span><br><span class="line">输出：</span><br><span class="line">(&apos;a&apos;,&apos;b&apos;,&apos;a,&apos;b,&apos;a&apos;,&apos;b&apos;,&apos;a&apos;,&apos;b&apos;)</span><br></pre></td></tr></table></figure>
-</li>
+<li>定义更复杂地表达式时，需要用括号将值包起来。</li>
 </ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tup = (4,5,6),(7,8)</span><br><span class="line">print(tup)</span><br><span class="line">输出：</span><br><span class="line">((4,5,6),(7,8))</span><br></pre></td></tr></table></figure>
+<ul>
+<li>可以使用tuple函数将任意序列或迭代器转换为元组</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">tup = tuple([1,2,3])</span><br><span class="line">print(tup)</span><br><span class="line">print(tuple(&apos;string&apos;))</span><br><span class="line">输出：</span><br><span class="line">(1,2,3)</span><br><span class="line">(&apos;s&apos;,&apos;t&apos;,&apos;r&apos;,&apos;i&apos;,&apos;n&apos;,&apos;g&apos;)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>可以用“+”号连接元组</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tup = (1,2,3)+(4,5)+(&apos;far&apos;,)</span><br><span class="line">print(tup)</span><br><span class="line">输出：</span><br><span class="line">(1,2,3,4,5,&apos;far&apos;)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>将元组乘以整数，则会和列表一样，生成含有多份拷贝地元组</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tup = (&apos;a&apos;,&apos;b&apos;)*4</span><br><span class="line">print(tup)</span><br><span class="line">输出：</span><br><span class="line">(&apos;a&apos;,&apos;b&apos;,&apos;a,&apos;b,&apos;a&apos;,&apos;b&apos;,&apos;a&apos;,&apos;b&apos;)</span><br></pre></td></tr></table></figure>
 <h4 id="获取元素"><a href="#获取元素" class="headerlink" title="获取元素"></a>获取元素</h4><p>通过中括号[]获取<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tup = tuple(&apos;string&apos;)</span><br><span class="line">print(tup[0])</span><br><span class="line">输出：</span><br><span class="line">&apos;s&apos;</span><br></pre></td></tr></table></figure></p>
 <p><strong>注：元组一旦创建则无法修改</strong><br><strong>但元组中地一个对象是可变地，则可以在它内部进行修改，如：列表</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">tup = tuple([&apos;foo&apos;,[1,2],True])</span><br><span class="line">tup[1].append(3)</span><br><span class="line">print(tup)</span><br><span class="line">输出：</span><br><span class="line">(&apos;foo&apos;,[1,2,3],True)</span><br></pre></td></tr></table></figure></p>
 <h4 id="元组拆包"><a href="#元组拆包" class="headerlink" title="元组拆包"></a>元组拆包</h4><ul>
-<li><p>如果对元组型地表达式赋值给变量，python会对等号地右边地值进行拆包</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">tup = (4,5,6)</span><br><span class="line">a,b,c = tup</span><br><span class="line">print(a)</span><br><span class="line">print(b)</span><br><span class="line">输出：</span><br><span class="line">4 5</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>使用特殊地语法*rest（*-）获取任意长度地位置参数列表：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">values = <span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span></span><br><span class="line">a, b = *rest = values</span><br><span class="line">print(rest)</span><br><span class="line">输出：</span><br><span class="line">[<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]</span><br></pre></td></tr></table></figure>
-</li>
+<li>如果对元组型地表达式赋值给变量，python会对等号地右边地值进行拆包</li>
 </ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">tup = (4,5,6)</span><br><span class="line">a,b,c = tup</span><br><span class="line">print(a)</span><br><span class="line">print(b)</span><br><span class="line">输出：</span><br><span class="line">4 5</span><br></pre></td></tr></table></figure>
+<ul>
+<li>使用特殊地语法*rest（*-）获取任意长度地位置参数列表：</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">values = <span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span></span><br><span class="line">a, b = *rest = values</span><br><span class="line">print(rest)</span><br><span class="line">输出：</span><br><span class="line">[<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]</span><br></pre></td></tr></table></figure>
 <h4 id="交换变量"><a href="#交换变量" class="headerlink" title="交换变量"></a>交换变量</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">a = 1</span><br><span class="line">b = 2</span><br><span class="line">a, b = b, a</span><br><span class="line">print(a)</span><br><span class="line">输出：</span><br><span class="line">2</span><br></pre></td></tr></table></figure>
 <h4 id="元组方法"><a href="#元组方法" class="headerlink" title="元组方法"></a>元组方法</h4><p>一个常见的有用方法是count，用于计算某个数值在元组中出现的次数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a = (1,2,2,3,4,2)</span><br><span class="line">print(a.count)</span><br><span class="line">输出：</span><br><span class="line">4</span><br></pre></td></tr></table></figure></p>
 
@@ -334,7 +336,7 @@
     
       <a class="prev" href="/2019/03/13/python2/">
         <i class="iconfont icon-left"></i>
-        <span class="prev-text nav-default">python数据分析（1）：列表</span>
+        <span class="prev-text nav-default">python数据分析(1)：列表</span>
         <span class="prev-text nav-mobile">上一篇</span>
       </a>
     
