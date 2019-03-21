@@ -17,10 +17,12 @@
 
 
 
-  <meta name="description" content="python11">
+  <meta name="description" content="python数据分析(2):数组的切片">
 
 
 
+
+  <meta name="keywords" content="编程, 技巧, 混子的集合地">
 
 
 
@@ -88,7 +90,7 @@
   window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":true,"pjax":true};
 </script>
 
-    <title> python11 - 混子的集合地 </title>
+    <title> python数据分析(2):数组的切片 - 混子的集合地 </title>
   </head>
 
   <body><div id="mobile-navbar" class="mobile-navbar">
@@ -204,7 +206,7 @@
     <header class="post-header">
       <h1 class="post-title">
         
-          python11
+          python数据分析(2):数组的切片
         
       </h1>
 
@@ -213,17 +215,33 @@
           2019-03-21
         </span>
         
+          <span class="post-category">
+            
+              <a href="/categories/学习教程/">学习教程</a>
+            
+          </span>
+        
         
       </div>
     </header>
 
     
     
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一维数组切片"><span class="toc-text">一维数组切片</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二维数组切片"><span class="toc-text">二维数组切片</span></a></li></ol>
+    </div>
+  </div>
+
 
 
     <div class="post-content">
       
-        
+        <h3 id="一维数组切片"><a href="#一维数组切片" class="headerlink" title="一维数组切片"></a>一维数组切片</h3><p>与列表的一维对象类似，可以通过类似语法来进行切片：<br><a id="more"></a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">arr = np.arange(<span class="number">10</span>)</span><br><span class="line">arr[<span class="number">1</span>:<span class="number">6</span>]</span><br><span class="line">输出：</span><br><span class="line">[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]</span><br></pre></td></tr></table></figure>
+<h3 id="二维数组切片"><a href="#二维数组切片" class="headerlink" title="二维数组切片"></a>二维数组切片</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">arr = np.array([[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]])</span><br><span class="line">arr[:<span class="number">2</span>]</span><br><span class="line">输出;</span><br><span class="line">array([[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>],</span><br><span class="line">       [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]])</span><br><span class="line">arr[:<span class="number">2</span>,<span class="number">1</span>:]   <span class="comment">#进行多组切片</span></span><br><span class="line">输出：</span><br><span class="line">array([[<span class="number">2</span>, <span class="number">3</span>],</span><br><span class="line">       [<span class="number">5</span>, <span class="number">6</span>]])</span><br><span class="line">arr[<span class="number">1</span>,:<span class="number">2</span>]           <span class="comment">#索引和切片混合，得到低维度的切片</span></span><br><span class="line">输出：</span><br><span class="line">array([<span class="number">4</span>, <span class="number">5</span>])</span><br><span class="line">arr[:,:<span class="number">1</span>] 			<span class="comment">#单独一个冒号表示选择整个轴上的数组，可以在更高维度上进行切片</span></span><br><span class="line">输出：</span><br><span class="line">array([[<span class="number">1</span>],</span><br><span class="line">       [<span class="number">4</span>]])</span><br></pre></td></tr></table></figure>
+
       
     </div>
 
@@ -273,6 +291,14 @@
 
     
       <footer class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/编程/">编程</a>
+            
+              <a href="/tags/技巧/">技巧</a>
+            
+          </div>
         
         
         
