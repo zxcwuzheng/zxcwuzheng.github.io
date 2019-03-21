@@ -17,7 +17,7 @@
 
 
 
-  <meta name="description" content="python数据分析(2):ndarray的数据类型">
+  <meta name="description" content="python数据分析(2):Numpy数组算术">
 
 
 
@@ -42,7 +42,7 @@
 
 
 
-<link rel="canonical" href="http://zxcwuzheng.github.io/2019/03/21/python8-1/">
+<link rel="canonical" href="http://zxcwuzheng.github.io/2019/03/21/python9/">
 
 
 
@@ -90,7 +90,7 @@
   window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":true,"pjax":true};
 </script>
 
-    <title> python数据分析(2):ndarray的数据类型 - 混子的集合地 </title>
+    <title> python数据分析(2):Numpy数组算术 - 混子的集合地 </title>
   </head>
 
   <body><div id="mobile-navbar" class="mobile-navbar">
@@ -206,7 +206,7 @@
     <header class="post-header">
       <h1 class="post-title">
         
-          python数据分析(2):ndarray的数据类型
+          python数据分析(2):Numpy数组算术
         
       </h1>
 
@@ -231,9 +231,10 @@
 
     <div class="post-content">
       
-        <p><strong>数据类型，即dtype，是一个特殊的对象，包含了ndarray需要为某一种类型数据所申明的内存块信息。</strong><br><a id="more"></a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">bool 用一位存储的布尔类型（值为TRUE或FALSE）</span><br><span class="line">inti 由所在平台决定其精度的整数（一般为int32或int64）</span><br><span class="line">int8 整数，范围为128至127</span><br><span class="line">int16 整数，范围为32 768至32 767</span><br><span class="line">int32 整数，范围为231至231 1</span><br><span class="line">int64 整数，范围为263至263 1</span><br><span class="line">uint8 无符号整数，范围为0至255</span><br><span class="line">uint16 无符号整数，范围为0至65 535</span><br><span class="line">uint32 无符号整数，范围为0至2321</span><br><span class="line">uint64 无符号整数，范围为0至2641</span><br><span class="line">float16 半精度浮点数（16位）：其中用1位表示正负号，5位表示指数，10位表示尾数</span><br><span class="line">float32 单精度浮点数（32位）：其中用1位表示正负号，8位表示指数，23位表示尾数</span><br><span class="line">float64或float 双精度浮点数（64位）：其中用1位表示正负号，11位表示指数，52位表示尾数</span><br><span class="line">complex64 复数，分别用两个32位浮点数表示实部和虚部</span><br><span class="line">complex128或complex 复数，分别用两个64位浮点数表示实部和虚部</span><br></pre></td></tr></table></figure>
-<p>可以使用astype方法显示的转换数组的数据类型<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">arr = np.array([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>])</span><br><span class="line">arr.dtype</span><br><span class="line">float_arr = arr.astype(np.float64)</span><br><span class="line">float_arr.dtype</span><br><span class="line">输出：</span><br><span class="line">dtype(<span class="string">'int32'</span>)</span><br><span class="line">dtype(<span class="string">'float64'</span>)</span><br></pre></td></tr></table></figure></p>
+        <p>数组之所以重要是因为它允许你进行批量操作而无须任何for循环。Numpy用户称这种特性为向量化。任何在两个等尺寸数组之间的算术操作都应用了逐元素操作的方式。<br><a id="more"></a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">arr = np.array([[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]])</span><br><span class="line">arr * arr</span><br><span class="line">输出：</span><br><span class="line">array([[ <span class="number">1</span>,  <span class="number">4</span>,  <span class="number">9</span>],</span><br><span class="line">       [<span class="number">16</span>, <span class="number">25</span>, <span class="number">36</span>]])</span><br><span class="line">arr - arr</span><br><span class="line">输出：</span><br><span class="line">array([[<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>],</span><br><span class="line">       [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>]])</span><br></pre></td></tr></table></figure>
+<p><strong>带有标量计算的算术操作，会把计算参数传递给参数数组的每一个元素</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">arr = np.array([[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]])</span><br><span class="line">输出：</span><br><span class="line">array([[<span class="number">1.</span>        , <span class="number">0.5</span>       , <span class="number">0.33333333</span>],</span><br><span class="line">       [<span class="number">0.25</span>      , <span class="number">0.2</span>       , <span class="number">0.16666667</span>]])</span><br></pre></td></tr></table></figure></p>
+<p><strong>同尺寸数组之间的比较，会产生一个布尔值数值</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">arr = np.array([[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]])</span><br><span class="line">arr2 = np.array([[<span class="number">0</span>,<span class="number">4</span>,<span class="number">1</span>],[<span class="number">7</span>,<span class="number">2</span>,<span class="number">12</span>]])</span><br><span class="line">arr2 &gt; arr</span><br><span class="line">输出：</span><br><span class="line">array([[<span class="keyword">False</span>,  <span class="keyword">True</span>, <span class="keyword">False</span>],</span><br><span class="line">       [ <span class="keyword">True</span>, <span class="keyword">False</span>,  <span class="keyword">True</span>]])</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -249,7 +250,7 @@
     </p>
     <p class="copyright-item">
       <span>原文链接: </span>
-      <a href="http://zxcwuzheng.github.io/2019/03/21/python8-1/">http://zxcwuzheng.github.io/2019/03/21/python8-1/</a>
+      <a href="http://zxcwuzheng.github.io/2019/03/21/python9/">http://zxcwuzheng.github.io/2019/03/21/python9/</a>
     </p>
     <p class="copyright-item">
       <span>许可协议: </span>
@@ -297,15 +298,9 @@
         
   <nav class="post-nav">
     
-      <a class="prev" href="/2019/03/21/python9/">
-        <i class="iconfont icon-left"></i>
-        <span class="prev-text nav-default">python数据分析(2):Numpy数组算术</span>
-        <span class="prev-text nav-mobile">上一篇</span>
-      </a>
     
-    
-      <a class="next" href="/2019/03/21/python8/">
-        <span class="next-text nav-default">python数据分析(2):生成ndarray</span>
+      <a class="next" href="/2019/03/21/python8-1/">
+        <span class="next-text nav-default">python数据分析(2):ndarray的数据类型</span>
         <span class="prev-text nav-mobile">下一篇</span>
         <i class="iconfont icon-right"></i>
       </a>
