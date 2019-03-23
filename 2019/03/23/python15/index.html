@@ -17,7 +17,7 @@
 
 
 
-  <meta name="description" content="python数据分析(2):数组转置和换轴">
+  <meta name="description" content="python数据分析(2):通用函数">
 
 
 
@@ -42,7 +42,7 @@
 
 
 
-<link rel="canonical" href="http://zxcwuzheng.github.io/2019/03/23/python14/">
+<link rel="canonical" href="http://zxcwuzheng.github.io/2019/03/23/python15/">
 
 
 
@@ -90,7 +90,7 @@
   window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":true,"pjax":true};
 </script>
 
-    <title> python数据分析(2):数组转置和换轴 - 混子的集合地 </title>
+    <title> python数据分析(2):通用函数 - 混子的集合地 </title>
   </head>
 
   <body><div id="mobile-navbar" class="mobile-navbar">
@@ -206,7 +206,7 @@
     <header class="post-header">
       <h1 class="post-title">
         
-          python数据分析(2):数组转置和换轴
+          python数据分析(2):通用函数
         
       </h1>
 
@@ -231,20 +231,96 @@
 
     <div class="post-content">
       
-        <p><strong>转置是一种特殊地数据重组形式，返回的是底层数据的视图。</strong></p>
+        <p><strong>通用函数可以称为ufunc，是一种在ndarray数据中进行逐元素操作的函数</strong></p>
 <ul>
-<li>T属性方法</li>
+<li>一元通用函数<a id="more"></a>
+</li>
 </ul>
-<a id="more"></a>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">arr = np.arange(<span class="number">15</span>).reshape((<span class="number">3</span>,<span class="number">5</span>))</span><br><span class="line">arr</span><br><span class="line">array([[ <span class="number">0</span>,  <span class="number">1</span>,  <span class="number">2</span>,  <span class="number">3</span>,  <span class="number">4</span>],</span><br><span class="line">       [ <span class="number">5</span>,  <span class="number">6</span>,  <span class="number">7</span>,  <span class="number">8</span>,  <span class="number">9</span>],</span><br><span class="line">       [<span class="number">10</span>, <span class="number">11</span>, <span class="number">12</span>, <span class="number">13</span>, <span class="number">14</span>]])</span><br><span class="line">arr.T</span><br><span class="line">array([[ <span class="number">0</span>,  <span class="number">5</span>, <span class="number">10</span>],</span><br><span class="line">       [ <span class="number">1</span>,  <span class="number">6</span>, <span class="number">11</span>],</span><br><span class="line">       [ <span class="number">2</span>,  <span class="number">7</span>, <span class="number">12</span>],</span><br><span class="line">       [ <span class="number">3</span>,  <span class="number">8</span>, <span class="number">13</span>],</span><br><span class="line">       [ <span class="number">4</span>,  <span class="number">9</span>, <span class="number">14</span>]])</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">arr = np.arange(<span class="number">10</span>)</span><br><span class="line">arr</span><br><span class="line">array([<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>])</span><br><span class="line">np.sqrt(arr)</span><br><span class="line">array([<span class="number">0.</span>        , <span class="number">1.</span>        , <span class="number">1.41421356</span>, <span class="number">1.73205081</span>, <span class="number">2.</span>        ,</span><br><span class="line">       <span class="number">2.23606798</span>, <span class="number">2.44948974</span>, <span class="number">2.64575131</span>, <span class="number">2.82842712</span>, <span class="number">3.</span>        ])</span><br><span class="line">np.exp(arr)</span><br><span class="line">array([<span class="number">1.00000000e+00</span>, <span class="number">2.71828183e+00</span>, <span class="number">7.38905610e+00</span>, <span class="number">2.00855369e+01</span>,</span><br><span class="line">       <span class="number">5.45981500e+01</span>, <span class="number">1.48413159e+02</span>, <span class="number">4.03428793e+02</span>, <span class="number">1.09663316e+03</span>,</span><br><span class="line">       <span class="number">2.98095799e+03</span>, <span class="number">8.10308393e+03</span>])</span><br></pre></td></tr></table></figure>
+<p>其余通用一元函数：</p>
+<table>
+<thead>
+<tr>
+<th>np.abs(ndarray)</th>
+<th>计算绝对值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>np.fabs(ndarray)</td>
+<td>计算绝对值（非复数）</td>
+</tr>
+<tr>
+<td>np.mean(ndarray)</td>
+<td>求平均值</td>
+</tr>
+<tr>
+<td>np.sqrt(ndarray)</td>
+<td>计算x^0.5</td>
+</tr>
+<tr>
+<td>np.square(ndarray)</td>
+<td>计算x^2</td>
+</tr>
+<tr>
+<td>np.exp(ndarray)</td>
+<td>计算e^x</td>
+</tr>
+<tr>
+<td>log、log10、log2、log1p</td>
+<td>计算自然对数、底为10的log、底为2的log、底为(1+x)的log</td>
+</tr>
+<tr>
+<td>np.sign(ndarray)</td>
+<td>计算正负号：1（正）、0（0）、-1（负）</td>
+</tr>
+<tr>
+<td>np.ceil(ndarray)</td>
+<td>计算大于等于改值的最小整数</td>
+</tr>
+<tr>
+<td>np.floor(ndarray)</td>
+<td>计算小于等于该值的最大整数</td>
+</tr>
+<tr>
+<td>np.rint(ndarray)</td>
+<td>四舍五入到最近的整数，保留dtype</td>
+</tr>
+<tr>
+<td>np.modf(ndarray)</td>
+<td>将数组的小数和整数部分以两个独立的数组方式返回</td>
+</tr>
+<tr>
+<td>np.isnan(ndarray)</td>
+<td>返回一个判断是否是NaN的bool型数组</td>
+</tr>
+<tr>
+<td>np.isfinite(ndarray)</td>
+<td>返回一个判断是否是有穷（非inf，非NaN）的bool型数组</td>
+</tr>
+<tr>
+<td>np.isinf(ndarray)</td>
+<td>返回一个判断是否是无穷的bool型数组</td>
+</tr>
+<tr>
+<td>cos、cosh、sin、sinh、tan、tanh</td>
+<td>普通型和双曲型三角函数</td>
+</tr>
+<tr>
+<td>arccos、arccosh、arcsin、arcsinh、arctan、arctanh</td>
+<td>反三角函数和双曲型反三角函数</td>
+</tr>
+<tr>
+<td>np.logical_not(ndarray)</td>
+<td>计算各元素not x的真值，相当于-ndarray</td>
+</tr>
+</tbody>
+</table>
 <ul>
-<li>swapaxes方法：接收一对轴编号作为参数。</li>
+<li>二元通用函数</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">arr = np.arange(<span class="number">16</span>).reshape((<span class="number">2</span>,<span class="number">2</span>,<span class="number">4</span>))</span><br><span class="line">arr</span><br><span class="line">array([[[ <span class="number">0</span>,  <span class="number">1</span>,  <span class="number">2</span>,  <span class="number">3</span>],</span><br><span class="line">        [ <span class="number">4</span>,  <span class="number">5</span>,  <span class="number">6</span>,  <span class="number">7</span>]],</span><br><span class="line"></span><br><span class="line">       [[ <span class="number">8</span>,  <span class="number">9</span>, <span class="number">10</span>, <span class="number">11</span>],</span><br><span class="line">        [<span class="number">12</span>, <span class="number">13</span>, <span class="number">14</span>, <span class="number">15</span>]]])</span><br><span class="line">arr.swapaxes(<span class="number">1</span>,<span class="number">2</span>)<span class="comment">#轴编号1和轴编号2的轴互换</span></span><br><span class="line">array([[[ <span class="number">0</span>,  <span class="number">4</span>],</span><br><span class="line">        [ <span class="number">1</span>,  <span class="number">5</span>],</span><br><span class="line">        [ <span class="number">2</span>,  <span class="number">6</span>],</span><br><span class="line">        [ <span class="number">3</span>,  <span class="number">7</span>]],</span><br><span class="line"></span><br><span class="line">       [[ <span class="number">8</span>, <span class="number">12</span>],</span><br><span class="line">        [ <span class="number">9</span>, <span class="number">13</span>],</span><br><span class="line">        [<span class="number">10</span>, <span class="number">14</span>],</span><br><span class="line">        [<span class="number">11</span>, <span class="number">15</span>]]])</span><br></pre></td></tr></table></figure>
-<ul>
-<li>transpose方法：接收包含轴编号的元组</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">arr.transpose((<span class="number">1</span>,<span class="number">0</span>,<span class="number">2</span>))</span><br><span class="line">array([[[ <span class="number">0</span>,  <span class="number">1</span>,  <span class="number">2</span>,  <span class="number">3</span>],</span><br><span class="line">        [ <span class="number">8</span>,  <span class="number">9</span>, <span class="number">10</span>, <span class="number">11</span>]],</span><br><span class="line"></span><br><span class="line">       [[ <span class="number">4</span>,  <span class="number">5</span>,  <span class="number">6</span>,  <span class="number">7</span>],</span><br><span class="line">        [<span class="number">12</span>, <span class="number">13</span>, <span class="number">14</span>, <span class="number">15</span>]]])</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">x = np.random.randn(<span class="number">8</span>)</span><br><span class="line">y = np.random.randn(<span class="number">8</span>)</span><br><span class="line">x</span><br><span class="line">array([<span class="number">-1.15132588</span>, <span class="number">-1.35123656</span>,  <span class="number">0.51098192</span>, <span class="number">-0.25118258</span>,  <span class="number">1.08519715</span>,</span><br><span class="line">        <span class="number">0.75409548</span>,  <span class="number">1.05154331</span>,  <span class="number">0.37752762</span>])</span><br><span class="line">y</span><br><span class="line">array([ <span class="number">0.27</span>      ,  <span class="number">0.97902579</span>,  <span class="number">0.80503422</span>,  <span class="number">0.7047441</span> ,  <span class="number">1.83971807</span>,</span><br><span class="line">       <span class="number">-0.32544447</span>,  <span class="number">1.5901045</span> , <span class="number">-1.3295793</span> ])</span><br><span class="line">np.maximum(x,y) <span class="comment">#逐个元素地将x和y中元素地最大值计算出来</span></span><br><span class="line">remainder,whole_part = np.modf(x)<span class="comment">#返回一个浮点值地小数部分和整数部分</span></span><br></pre></td></tr></table></figure>
+<p><img src="/2019/03/23/python15/1.png" alt=""><br><img src="/2019/03/23/python15/2.png" alt=""></p>
 
       
     </div>
@@ -260,7 +336,7 @@
     </p>
     <p class="copyright-item">
       <span>原文链接: </span>
-      <a href="http://zxcwuzheng.github.io/2019/03/23/python14/">http://zxcwuzheng.github.io/2019/03/23/python14/</a>
+      <a href="http://zxcwuzheng.github.io/2019/03/23/python15/">http://zxcwuzheng.github.io/2019/03/23/python15/</a>
     </p>
     <p class="copyright-item">
       <span>许可协议: </span>
@@ -308,15 +384,9 @@
         
   <nav class="post-nav">
     
-      <a class="prev" href="/2019/03/23/python15/">
-        <i class="iconfont icon-left"></i>
-        <span class="prev-text nav-default">python数据分析(2):通用函数</span>
-        <span class="prev-text nav-mobile">上一篇</span>
-      </a>
     
-    
-      <a class="next" href="/2019/03/22/python13/">
-        <span class="next-text nav-default">python数据分析(2):神奇索引</span>
+      <a class="next" href="/2019/03/23/python14/">
+        <span class="next-text nav-default">python数据分析(2):数组转置和换轴</span>
         <span class="prev-text nav-mobile">下一篇</span>
         <i class="iconfont icon-right"></i>
       </a>
