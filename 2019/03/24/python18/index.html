@@ -17,7 +17,7 @@
 
 
 
-  <meta name="description" content="python数据分析(2):使用数组进行文件操作">
+  <meta name="description" content="python数据分析(2):线性代数">
 
 
 
@@ -42,7 +42,7 @@
 
 
 
-<link rel="canonical" href="http://zxcwuzheng.github.io/2019/03/24/python17/">
+<link rel="canonical" href="http://zxcwuzheng.github.io/2019/03/24/python18/">
 
 
 
@@ -90,7 +90,7 @@
   window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":true,"pjax":true};
 </script>
 
-    <title> python数据分析(2):使用数组进行文件操作 - 混子的集合地 </title>
+    <title> python数据分析(2):线性代数 - 混子的集合地 </title>
   </head>
 
   <body><div id="mobile-navbar" class="mobile-navbar">
@@ -206,7 +206,7 @@
     <header class="post-header">
       <h1 class="post-title">
         
-          python数据分析(2):使用数组进行文件操作
+          python数据分析(2):线性代数
         
       </h1>
 
@@ -231,20 +231,70 @@
 
     <div class="post-content">
       
-        <p><strong>Numpy将数据以文本或二进制文件的形式进行硬盘的存入和载入。</strong></p>
+        <p><strong>Numpy的线性代数中所不同的是<code>*</code>是矩阵的逐元素乘积，而不是矩阵的点乘积。</strong></p>
 <ul>
-<li>np.save（）：以未压缩的形式进行存储<a id="more"></a>
+<li>np.dot（）：点乘积<a id="more"></a>
 </li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">arr = np.arange(<span class="number">10</span>)</span><br><span class="line">np.save(<span class="string">"some_array"</span>,arr)<span class="comment">#文件名后缀一般为.npy，没写时系统一般自行写入</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">x = np.array([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>])</span><br><span class="line">y = np.array([<span class="number">7</span>,<span class="number">8</span>],[<span class="number">9</span>,<span class="number">10</span>],[<span class="number">11</span>,<span class="number">12</span>])</span><br><span class="line">x.dot(y)						<span class="comment">#等同于np.dot(x,y)或者x @ y</span></span><br><span class="line">array([[ <span class="number">58</span>,  <span class="number">64</span>],</span><br><span class="line">       [<span class="number">139</span>, <span class="number">154</span>]])</span><br></pre></td></tr></table></figure>
 <ul>
-<li>np.load():载入硬盘上的数组</li>
+<li>numpy.linalg拥有一个矩阵分解的标准函数集，以及其它常用函数。</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">np.load(<span class="string">"some_array.npy"</span>)</span><br><span class="line">array([<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>])</span><br></pre></td></tr></table></figure>
-<ul>
-<li>np.savez():将数组作为参数传递给该函数，用于在未压缩文件中保存多个数组</li>
-</ul>
-<p><strong>载入一个npz文件时，会获得一个字典型的对象</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">np.savez(<span class="string">"array_archive.npz"</span>,a = arr, b = arr)</span><br><span class="line">arch = np.load(<span class="string">"array_archive.npz"</span>)</span><br><span class="line">arch[<span class="string">'b'</span>]</span><br><span class="line">array([<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>])</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">x = np.random.randn(<span class="number">5</span>,<span class="number">5</span>)</span><br><span class="line">np.linalg.inv(x)			<span class="comment">#inv方法：求方阵的逆矩阵</span></span><br><span class="line">array([[<span class="number">-0.92158596</span>, <span class="number">-1.04720744</span>, <span class="number">-1.80581096</span>, <span class="number">-0.6873305</span> , <span class="number">-0.80944059</span>],</span><br><span class="line">       [<span class="number">-3.09575993</span>, <span class="number">-6.04699607</span>, <span class="number">-9.6996578</span> , <span class="number">-2.64078249</span>, <span class="number">-6.41501267</span>],</span><br><span class="line">       [ <span class="number">0.71126744</span>,  <span class="number">0.79355982</span>,  <span class="number">1.98045994</span>, <span class="number">-0.1414656</span> ,  <span class="number">1.15201042</span>],</span><br><span class="line">       [<span class="number">-0.51597128</span>, <span class="number">-0.42222747</span>, <span class="number">-0.84189964</span>, <span class="number">-0.21775884</span>, <span class="number">-1.22959824</span>],</span><br><span class="line">       [<span class="number">-1.7858274</span> , <span class="number">-3.42293023</span>, <span class="number">-4.54490907</span>, <span class="number">-1.56732629</span>, <span class="number">-2.23346567</span>]])</span><br><span class="line">q, r = np.linalg.qr(x)			<span class="comment">#计算QR分解</span></span><br><span class="line">q</span><br><span class="line">array([[<span class="number">-0.00333964</span>, <span class="number">-0.2470192</span> ,  <span class="number">0.88018036</span>, <span class="number">-0.40440233</span>, <span class="number">-0.02667676</span>],</span><br><span class="line">       [<span class="number">-0.79020327</span>, <span class="number">-0.47422599</span>, <span class="number">-0.19100446</span>, <span class="number">-0.13982087</span>,  <span class="number">0.30766204</span>],</span><br><span class="line">       [ <span class="number">0.08820623</span>,  <span class="number">0.11309112</span>, <span class="number">-0.38053904</span>, <span class="number">-0.88245347</span>, <span class="number">-0.23642329</span>],</span><br><span class="line">       [ <span class="number">0.36509152</span>, <span class="number">-0.81798618</span>, <span class="number">-0.18672324</span>,  <span class="number">0.11572222</span>, <span class="number">-0.38645776</span>],</span><br><span class="line">       [ <span class="number">0.48424734</span>, <span class="number">-0.17944426</span>, <span class="number">-0.09552119</span>, <span class="number">-0.15745832</span>,  <span class="number">0.83629352</span>]])</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>diag</td>
+<td>以一维数组的形式返回方针的对角线元素，或将一维数组转换为方阵（非对角线元素为）</td>
+</tr>
+<tr>
+<td>dot</td>
+<td>矩阵乘法</td>
+</tr>
+<tr>
+<td>trace</td>
+<td>计算对角线元素的和</td>
+</tr>
+<tr>
+<td>det</td>
+<td>计算矩阵行列式</td>
+</tr>
+<tr>
+<td>eig</td>
+<td>计算方阵的本征值和本征</td>
+</tr>
+<tr>
+<td>inv</td>
+<td>计算方阵的逆</td>
+</tr>
+<tr>
+<td>pinv</td>
+<td>计算矩阵的Moore-Penrose伪逆</td>
+</tr>
+<tr>
+<td>qr</td>
+<td>计算QR分解</td>
+</tr>
+<tr>
+<td>svd</td>
+<td>计算奇异值分解（SVD）</td>
+</tr>
+<tr>
+<td>solve</td>
+<td>解线性方程组Ax = b， 其中A为一个方阵</td>
+</tr>
+<tr>
+<td>lstsq</td>
+<td>计算Ax = b的最小二乘解</td>
+</tr>
+</tbody>
+</table>
 
       
     </div>
@@ -260,7 +310,7 @@
     </p>
     <p class="copyright-item">
       <span>原文链接: </span>
-      <a href="http://zxcwuzheng.github.io/2019/03/24/python17/">http://zxcwuzheng.github.io/2019/03/24/python17/</a>
+      <a href="http://zxcwuzheng.github.io/2019/03/24/python18/">http://zxcwuzheng.github.io/2019/03/24/python18/</a>
     </p>
     <p class="copyright-item">
       <span>许可协议: </span>
@@ -308,15 +358,9 @@
         
   <nav class="post-nav">
     
-      <a class="prev" href="/2019/03/24/python18/">
-        <i class="iconfont icon-left"></i>
-        <span class="prev-text nav-default">python数据分析(2):线性代数</span>
-        <span class="prev-text nav-mobile">上一篇</span>
-      </a>
     
-    
-      <a class="next" href="/2019/03/23/python16/">
-        <span class="next-text nav-default">python数据分析(2):面向数组编程</span>
+      <a class="next" href="/2019/03/24/python17/">
+        <span class="next-text nav-default">python数据分析(2):使用数组进行文件操作</span>
         <span class="prev-text nav-mobile">下一篇</span>
         <i class="iconfont icon-right"></i>
       </a>
