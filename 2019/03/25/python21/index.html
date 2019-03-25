@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head><meta name="generator" content="Hexo 3.8.0">
+    
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+<meta name="theme-color" content="#f8f5ec">
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+
+  <meta name="description" content="python数据分析(3):DataFrame">
+
+
+
+
+  <meta name="keywords" content="编程, 技巧, 混子的集合地">
+
+
+
+
+
+
+
+
+
+
+  <link rel="alternate" href="/default" title="混子的集合地">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.10.2">
+
+
+
+<link rel="canonical" href="http://zxcwuzheng.github.io/2019/03/25/python21/">
+
+
+
+  <link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css">
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/lib/nprogress/nprogress.min.css">
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.10.2">
+
+
+
+  
+
+
+
+  <script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+
+
+
+
+
+
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":true,"pjax":true};
+</script>
+
+    <title> python数据分析(3):DataFrame - 混子的集合地 </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">混子的集合地</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/">
+        <li class="mobile-menu-item">
+          
+          
+            首页
+          
+        </li>
+      </a>
+    
+      <a href="/archives/">
+        <li class="mobile-menu-item">
+          
+          
+            归档
+          
+        </li>
+      </a>
+    
+      <a href="/tags">
+        <li class="mobile-menu-item">
+          
+          
+            标签
+          
+        </li>
+      </a>
+    
+      <a href="/categories/">
+        <li class="mobile-menu-item">
+          
+          
+            分类
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">混子的集合地</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              首页
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            
+            
+              归档
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/tags">
+            
+            
+              标签
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/categories/">
+            
+            
+              分类
+            
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          python数据分析(3):DataFrame
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2019-03-25
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/学习教程/">学习教程</a>
+            
+          </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#创建DataFrame"><span class="toc-text">创建DataFrame</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#访问DataFrame"><span class="toc-text">访问DataFrame</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#属性和方法"><span class="toc-text">属性和方法</span></a></li></ol>
+    </div>
+  </div>
+
+
+
+    <div class="post-content">
+      
+        <p><strong>DateFrame表示的是矩阵的数据表。包含已经排序的列集合。每列的类型可不同。</strong></p>
+<h2 id="创建DataFrame"><a href="#创建DataFrame" class="headerlink" title="创建DataFrame"></a>创建DataFrame</h2><a id="more"></a>
+<ul>
+<li>接收包含等长度列表或数组的<strong>字典</strong>，不指定索引时。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">import pandas as pd</span><br><span class="line">data = &#123;&apos;state&apos;:[&apos;a&apos;,&apos;a&apos;,&apos;a&apos;,&apos;b&apos;,&apos;b&apos;,&apos;c&apos;],&apos;year&apos;:[1,2,3,2,3,4],&apos;pop&apos;:[1.5,1.7,3.6,2.4,2.9,3.2]&#125;</span><br><span class="line">frame = pd.DataFrame(data)			#自动分配索引</span><br><span class="line">frame</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/03/25/python21/1.jpg" alt=""></p>
+<ul>
+<li>接收字典且指定顺序排列时</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">import pandas as pd</span><br><span class="line">data = &#123;&apos;state&apos;:[&apos;a&apos;,&apos;a&apos;,&apos;a&apos;,&apos;b&apos;,&apos;b&apos;,&apos;c&apos;],&apos;year&apos;:[1,2,3,2,3,4],&apos;pop&apos;:[1.5,1.7,3.6,2.4,2.9,3.2]&#125;</span><br><span class="line">frame = pd.DataFrame(data,columns=[&apos;year&apos;,&apos;state&apos;,&apos;pop&apos;])</span><br><span class="line">frame</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/03/25/python21/2.jpg" alt=""></p>
+<ul>
+<li>接收字典，当传入没有的列时</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">import pandas as pd</span><br><span class="line">data = &#123;&apos;state&apos;:[&apos;a&apos;,&apos;a&apos;,&apos;a&apos;,&apos;b&apos;,&apos;b&apos;,&apos;c&apos;],&apos;year&apos;:[1,2,3,2,3,4],&apos;pop&apos;:[1.5,1.7,3.6,2.4,2.9,3.2]&#125;</span><br><span class="line">frame = pd.DataFrame(data,columns=[&apos;year&apos;,&apos;state&apos;,&apos;pop&apos;,&apos;debt&apos;],index=[&apos;one&apos;,&apos;two&apos;,&apos;three&apos;,&apos;four&apos;,&apos;five&apos;,&apos;six&apos;])</span><br><span class="line">frame</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/03/25/python21/3.jpg" alt=""></p>
+<ul>
+<li>接收嵌套的字典，索引指明可指定或不指定</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">import pandas as pd</span><br><span class="line">pop = &#123;&apos;Nevada&apos;:&#123;2001:2.4,2002:2.9&#125;,&apos;Ohio&apos;:&#123;2000:1.5,2001:1.7,2002:3.6&#125;&#125;</span><br><span class="line">frame2 = pd.DataFrame(pop)	#字典的键作为列名，内部的字典的键作为行索引</span><br><span class="line">frame2</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/03/25/python21/6.jpg" alt=""></p>
+<h2 id="访问DataFrame"><a href="#访问DataFrame" class="headerlink" title="访问DataFrame"></a>访问DataFrame</h2><ul>
+<li>选择DataFrame中的某一列(<strong>得到的是数据的视图，不是拷贝</strong>)</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">frame[&apos;pop&apos;]			#或frame.pop（只在列名是有效的变量名时有效）</span><br><span class="line">输出：</span><br><span class="line">one      1.5</span><br><span class="line">two      1.7</span><br><span class="line">three    3.6</span><br><span class="line">four     2.4</span><br><span class="line">five     2.9</span><br><span class="line">six      3.2</span><br><span class="line">Name: pop, dtype: float64</span><br></pre></td></tr></table></figure>
+<ul>
+<li>选择某一行</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">frame.loc[&apos;one&apos;]</span><br><span class="line">输出：</span><br><span class="line">year       1</span><br><span class="line">state      a</span><br><span class="line">pop      1.5</span><br><span class="line">debt     NaN</span><br><span class="line">Name: one, dtype: object</span><br></pre></td></tr></table></figure>
+<ul>
+<li>列的引用可以修改</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">frame[&apos;debt&apos;]=16.5</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/03/25/python21/4.jpg" alt=""></p>
+<ul>
+<li>删除列</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">del frame[&apos;pop&apos;]</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/03/25/python21/5.jpg" alt=""></p>
+<h2 id="属性和方法"><a href="#属性和方法" class="headerlink" title="属性和方法"></a>属性和方法</h2><ul>
+<li>head方法：选出数据头部的五行</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">frame.head()</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/03/25/python21/7.jpg" alt=""></p>
+<ul>
+<li>转置操作</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">frame2.T</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/03/25/python21/8.jpg" alt=""></p>
+<ul>
+<li>name属性</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">frmae2.index.name = &apos;year&apos;</span><br><span class="line">frame2.columns.name = &apos;state&apos;</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/03/25/python21/9.jpg" alt=""></p>
+<ul>
+<li>values属性：以二维表的形式返回</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">frame2.values		#列类型不同时，自动选择最适合的类型</span><br><span class="line">输出：</span><br><span class="line">array([[nan, 1.5],</span><br><span class="line">       [2.4, 1.7],</span><br><span class="line">       [2.9, 3.6]])</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+      
+      
+
+  <div class="post-copyright">
+    <p class="copyright-item">
+      <span>原文作者: </span>
+      <a href="http://zxcwuzheng.github.io">yiwu zhang</a>
+    </p>
+    <p class="copyright-item">
+      <span>原文链接: </span>
+      <a href="http://zxcwuzheng.github.io/2019/03/25/python21/">http://zxcwuzheng.github.io/2019/03/25/python21/</a>
+    </p>
+    <p class="copyright-item">
+      <span>许可协议: </span>
+      
+      本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+    </p>
+  </div>
+
+
+
+      
+      
+  <div class="post-reward">
+    <input type="checkbox" name="reward" id="reward" hidden>
+    <label class="reward-button" for="reward">赞赏支持</label>
+    <div class="qr-code">
+      
+      
+        <label class="qr-code-image" for="reward">
+          <img class="image" src="/image/wx.png" title="wechat">
+        </label>
+      
+      
+        <label class="qr-code-image" for="reward">
+          <img class="image" src="/image/zfb.jpg" title="alipay">
+        </label>
+      
+    </div>
+  </div>
+
+    
+
+    
+      <footer class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/编程/">编程</a>
+            
+              <a href="/tags/技巧/">技巧</a>
+            
+          </div>
+        
+        
+        
+  <nav class="post-nav">
+    
+    
+      <a class="next" href="/2019/03/25/python20/">
+        <span class="next-text nav-default">python数据分析(3):Series对象</span>
+        <span class="prev-text nav-mobile">下一篇</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:957190308@qq.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+
+    
+      
+      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2015 - 
+    
+    2019
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">yiwu zhang</span>
+  </span>
+</div>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+  
+
+  
+
+
+
+    
+  
+
+
+
+  
+  
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/pjax/jquery.pjax.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/nprogress/nprogress.min.js"></script>
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.10.2"></script>
+
+  </body>
+</html>
